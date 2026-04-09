@@ -1,0 +1,21 @@
+<?php
+// Database configuration
+$servername = "localhost";    // XAMPP default
+$username = "root";           // XAMPP default
+$password = "";               // XAMPP default password is empty
+$dbname = "livestock_db";    // Your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    // Stop execution and return JSON error if connection fails
+    die(json_encode([
+        "error" => "Database connection failed: " . $conn->connect_error
+    ]));
+}
+
+// Set UTF-8 charset to handle all characters properly
+$conn->set_charset("utf8");
+?>
